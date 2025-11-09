@@ -1,0 +1,1 @@
+{"root":["./vite.config.ts","./src/types/declaremachinelearningmodels.d.ts","./src/types/declareonnxnode.d.ts","./src/types/declareqr.d.ts"],"version":"5.6.3"}

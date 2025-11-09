@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 250, 250, 250;
+  --background-start-rgb: 0, 11, 60 ;
+  --background-end-rgb: 23, 45, 82;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 250, 250, 250;
+    --background-start-rgb: 0, 11, 60 ;
+    --background-end-rgb: 23, 45, 82;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+}
+
+.navlink-border-animation {
+  position: relative; /* Ensure the pseudo-element is positioned relative to the NavLink */
+}
+
+.navlink-border-animation-after {
+  position: relative;
+}
+
+.navlink-border-animation::after {
+  content: '';
+  position: absolute;
+  top: 0; /* Position the border at the top */
+  left: 0;
+  height: 2px; /* Border thickness */
+  width: 0%; /* Start with no width */
+  background-color: #3b82f6; /* Blue color */
+  transition: width 0.2s ease-out; /* Smooth transition for sliding */
+}
+
+.navlink-border-animation:hover::after,
+.navlink-border-animation-active::after {
+  width: 100%; /* Expand the border to full width on hover or active state */
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes lineLoader {
+    0%{
+      width: 0%;
+      border-top-color: #3b82f6;
+    }
+    50%{
+      width: 50%;
+      border-top-color: #3bf65d;
+    }
+    100%{
+      width: 100%;
+      border-top-color: #f68c3b;
+    }
+  }
+
+  @keyframes trainerLineApprove {
+    0%{
+      width: 0%;
+      border-top-color: #003fa4;
+    }
+    50%{
+      width: 50%;
+      border-top-color: #39a400;
+    }
+    100%{
+      width: 100%;
+      border-top-color: #a47000;
+    }
+  }
+  
+  .loader {
+    border-top-color: #3b82f6;
+    animation: spin 1.5s linear infinite;
+  }
+
+  .loader-line {
+    border-top: dotted 0.5rem;
+    animation: lineLoader 1.5s linear infinite;
+  }
+
+  .trainer-approve-loader {
+    border-top: dotted 0.5rem;
+    animation: trainerLineApprove 1.5s linear infinite;
+  }
+  
+  .animate-in {
+    animation: animateIn 0.3s ease 0.15s both;
+  }
+  
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideLeftOut {
+    0% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100%);
+      opacity: 1;
+    }
+  }
+  
+  .slide-left-out {
+    animation: slideLeftOut 0.2s ease-out forwards;
+  }
+  
+  @keyframes slideRightIn {
+    0% {
+      transform: translateX(-100%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+  
+  .slide-right {
+    animation: slideRightIn 0.2s ease-out forwards;
+  }
+  
+  @keyframes slideUpFadeIn {
+      0% {
+        transform: translateY(10%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+  .slide-up-fade-in {
+  animation: slideUpFadeIn 0.5s ease-out forwards;
+  }
+  
+  @keyframes scaleUp {
+      0% {
+        transform: scale(0);
+        transform-origin: top left;
+      }
+      100% {
+        transform: scale(1);
+        transform-origin: top left;
+      }
+    }
+    
+    .scale-up {
+      animation: scaleUp 0.2s ease-out forwards;
+    }
+
+    @keyframes scaleBigger {
+      0% {
+        scale: 0%;
+      }
+      50%{
+        scale: 110%;
+      }
+      100% {
+        scale: 100%
+      }
+    }
+
+    .scale-bigger {
+      animation: scaleBigger 0.9s ease-out;
+    }
+
+    .scanner-class {
+      font-family: 'RedditSansCondensed';
+      flex: auto;
+      width: 100%;
+      height: 100%;
+      color: white;
+
+      option, select {
+        border-radius: 0.4rem;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        background-color: #303030;
+      }
+
+      button {
+        width: 70%;
+        background-color: #303030;
+        border-radius: 0.4rem;
+        border: #3b82f6 2px solid;
+      }
+    }
+
+  @font-face {
+    font-family: 'RedditSansCondensed';
+    src: url('/RedditSansCondensed-VariableFont_wght.ttf') format('truetype'); /* Adjust the path as necessary */
+  }
+
+  @font-face {
+    font-family: 'GamePlayed';
+    src: url('/GamePlayed-vYL7.ttf') format('truetype');
+  }
+  
+  .reddit-sans-condensed-text {
+    font-family: 'RedditSansCondensed' !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
+  label,
+  option,
+  p{
+    font-family: 'RedditSansCondensed' !important;
+  }
